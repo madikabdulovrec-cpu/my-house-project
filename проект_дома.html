@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Проект дома 8×15 м · Алматинская область</title>
+<style>
+  :root{
+    --bg:#fafaf7; --ink:#1a1a1a; --muted:#666; --accent:#c0392b;
+    --accent2:#2c5f7c; --line:#d8d4cc; --soft:#f0ebe0; --warn:#e67e22;
+    --ok:#27ae60;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); max-width:1100px; margin:0 auto;
+    padding:30px 40px; line-height:1.6; font-size:15px}
+  h1{font-size:32px; margin:0 0 8px; border-bottom:3px solid var(--accent); padding-bottom:10px}
+  h2{font-size:24px; margin:40px 0 12px; color:var(--accent2);
+    border-bottom:1px solid var(--line); padding-bottom:6px}
+  h3{font-size:18px; margin:24px 0 8px; color:var(--ink)}
+  h4{font-size:15px; margin:16px 0 4px; color:var(--accent2); text-transform:uppercase; letter-spacing:.5px}
+  .lead{font-size:17px; color:var(--muted); margin-bottom:24px}
+  .grid{display:grid; gap:16px; margin:16px 0}
+  .grid-2{grid-template-columns:1fr 1fr}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:#fff; border:1px solid var(--line); padding:16px 20px; border-radius:6px}
+  .card-accent{background:var(--soft); border-left:4px solid var(--accent2)}
+  .warn{background:#fef5ed; border-left:4px solid var(--warn); padding:12px 16px; border-radius:4px; margin:12px 0}
+  .ok{background:#eafaf1; border-left:4px solid var(--ok); padding:12px 16px; border-radius:4px; margin:12px 0}
+  table{width:100%; border-collapse:collapse; margin:12px 0; background:#fff}
+  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); font-size:14px}
+  th{background:var(--soft); font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.3px}
+  td.num{text-align:right; font-variant-numeric:tabular-nums}
+  tr:hover{background:#fcfaf6}
+  tfoot td{font-weight:700; background:var(--soft); border-top:2px solid var(--ink)}
+  .meta{display:flex; gap:24px; flex-wrap:wrap; margin:16px 0; padding:14px 18px;
+    background:var(--soft); border-radius:6px; font-size:14px}
+  .meta div b{display:block; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px}
+  svg{display:block; max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:6px}
+  .legend{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; font-size:13px; color:var(--muted)}
+  .legend span{display:inline-flex; align-items:center; gap:6px}
+  .legend i{display:inline-block; width:14px; height:14px; border-radius:2px}
+  .toc{background:#fff; border:1px solid var(--line); padding:16px 24px; border-radius:6px; margin:20px 0}
+  .toc ol{margin:0; padding-left:20px}
+  .toc a{color:var(--accent2); text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  ul.checklist{list-style:none; padding-left:0}
+  ul.checklist li{padding:6px 0 6px 28px; position:relative; border-bottom:1px dashed var(--line)}
+  ul.checklist li:before{content:"☐"; position:absolute; left:0; color:var(--accent); font-size:18px}
+  .phase{display:flex; gap:14px; margin:8px 0; padding:14px; background:#fff; border:1px solid var(--line); border-radius:6px}
+  .phase-num{flex-shrink:0; width:42px; height:42px; background:var(--accent2); color:#fff;
+    border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px}
+  .phase-body{flex:1}
+  .phase-body h4{margin:0 0 4px; color:var(--ink)}
+  .phase-body .when{font-size:13px; color:var(--muted)}
+  .footnote{font-size:12px; color:var(--muted); font-style:italic; margin-top:8px}
+  @media print{
+    body{padding:15px; font-size:12px}
+    .phase, .card, table{page-break-inside:avoid}
+    h2{page-break-before:auto}
+  }
+</style>
+</head>
+<body>
+
+<h1>Проект жилого дома 120 м²</h1>
+<p class="lead">Одноэтажный дом 8 × 15 м · монолитный каркас + газоблок · Алматинская область · сейсмика 9 баллов</p>
+
+<div class="meta">
+  <div><b>Участок</b>12 × 42 м (504 м² / ~5 соток)</div>
+  <div><b>Дом</b>8 × 15 м (120 м²)</div>
+  <div><b>Этажность</b>1 этаж, потолки 3.2 м</div>
+  <div><b>Конструктив</b>Монолитный ж/б каркас + газоблок D500 400 мм</div>
+  <div><b>Фундамент</b>Монолитная плита 300 мм</div>
+  <div><b>Регион</b>Алматинская область, сейсмика 9 баллов</div>
+</div>
+
+<div class="toc">
+  <b>Содержание</b>
+  <ol>
+    <li><a href="#site">Планограмма участка</a></li>
+    <li><a href="#house">План дома</a></li>
+    <li><a href="#construction">Конструктив</a></li>
+    <li><a href="#materials">Спецификация материалов</a></li>
+    <li><a href="#cost">Смета по этапам</a></li>
+    <li><a href="#schedule">График работ</a></li>
+    <li><a href="#checklist">Чек-листы приёмки</a></li>
+  </ol>
+</div>
+
+<!-- ============ 1. УЧАСТОК ============ -->
+<h2 id="site">1. Планограмма участка</h2>
+
+<p>Участок узкий и длинный (12 × 42 м), вытянут с востока на запад. Въезд с восточной стороны, с улицы.
+Северная граница примыкает к 3-этажному коммерческому зданию «Нұрхат Market» — это удачно: коммерция
+не крадёт солнце с южной стороны и служит ветрозащитой с севера. Южный сосед — частный дом №36.</p>
+
+<svg viewBox="0 0 1000 380" xmlns="http://www.w3.org/2000/svg">
+  <!-- Compass -->
+  <g transform="translate(40,40)">
+    <circle cx="25" cy="25" r="22" fill="#fff" stroke="#333"/>
+    <text x="25" y="14" text-anchor="middle" font-size="11" font-weight="bold" fill="#c0392b">С</text>
+    <text x="25" y="42" text-anchor="middle" font-size="11" fill="#666">Ю</text>
+    <text x="9" y="29" text-anchor="middle" font-size="11" fill="#666">З</text>
+    <text x="41" y="29" text-anchor="middle" font-size="11" fill="#666">В</text>
+    <line x1="25" y1="6" x2="25" y2="20" stroke="#c0392b" stroke-width="2"/>
+  </g>
+
+  <!-- Sun -->
+  <g transform="translate(900,40)">
+    <circle cx="0" cy="0" r="14" fill="#f1c40f"/>
+    <text x="0" y="4" text-anchor="middle" font-size="12">☀</text>
+    <text x="0" y="35" text-anchor="middle" font-size="11" fill="#666">солнце весь день</text>
+  </g>
+
+  <!-- Commercial building (north) -->
+  <rect x="120" y="80" width="800" height="40" fill="#bdc3c7" stroke="#7f8c8d"/>
+  <text x="520" y="105" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">3-эт. КОММЕРЦИЯ — Нұрхат Market</text>
+
+  <!-- North fence -->
+  <line x1="120" y1="125" x2="920" y2="125" stroke="#444" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="125" y="138" font-size="10" fill="#666">забор · отступ 1 м</text>
+
+  <!-- Plot outline -->
+  <rect x="120" y="130" width="800" height="220" fill="#f4ead5" stroke="#c0392b" stroke-width="2"/>
+
+  <!-- South fence -->
+  <line x1="120" y1="350" x2="920" y2="350" stroke="#444" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="125" y="365" font-size="10" fill="#666">забор · отступ 3 м к соседу №36</text>
+
+  <!-- South neighbor -->
+  <text x="520" y="372" text-anchor="middle" font-size="12" fill="#666">↓ дом №36 (жилой сосед) ↓</text>
+
+  <!-- Plot zones: parking, house, yard -->
+  <!-- Parking + canopy zone (east, ~6m+5m) -->
+  <rect x="730" y="140" width="180" height="200" fill="#e8f4f8" stroke="#2c5f7c" stroke-dasharray="4,3"/>
+  <text x="820" y="200" text-anchor="middle" font-size="13" font-weight="bold" fill="#2c5f7c">ВЪЕЗД</text>
+  <text x="820" y="220" text-anchor="middle" font-size="12" fill="#2c5f7c">парковка + навес 6×3м</text>
+  <text x="820" y="240" text-anchor="middle" font-size="11" fill="#666">поликарбонат</text>
+  <text x="820" y="260" text-anchor="middle" font-size="11" fill="#666">~11 м (5м отступ + 6м навес)</text>
+
+  <!-- Canopy -->
+  <rect x="745" y="265" width="160" height="60" fill="#a9cce3" stroke="#2c5f7c" opacity="0.5"/>
+  <text x="825" y="300" text-anchor="middle" font-size="11" fill="#1a5276">навес</text>
+
+  <!-- House -->
+  <rect x="430" y="160" width="290" height="155" fill="#d5dbdb" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="575" y="225" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a1a">ДОМ 8 × 15 м</text>
+  <text x="575" y="245" text-anchor="middle" font-size="13" fill="#444">120 м²</text>
+  <text x="575" y="265" text-anchor="middle" font-size="11" fill="#666">монолит + газоблок</text>
+
+  <!-- Entry arrow -->
+  <path d="M 730 240 L 720 240" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="725" y="232" font-size="10" fill="#27ae60">вход</text>
+
+  <!-- Garden zone -->
+  <rect x="135" y="140" width="280" height="200" fill="#d5f5e3" stroke="#27ae60" stroke-dasharray="4,3"/>
+  <text x="275" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e8449">САД · ОГОРОД</text>
+  <text x="275" y="240" text-anchor="middle" font-size="12" fill="#1e8449">зона барбекю</text>
+  <text x="275" y="258" text-anchor="middle" font-size="11" fill="#666">~16 м</text>
+
+  <!-- Terrace -->
+  <rect x="415" y="225" width="20" height="60" fill="#e8d5b7" stroke="#a0522d"/>
+  <text x="395" y="260" text-anchor="middle" font-size="10" fill="#8b4513" transform="rotate(-90,395,260)">терраса</text>
+
+  <!-- Dimensions -->
+  <line x1="120" y1="375" x2="920" y2="375" stroke="#333"/>
+  <text x="520" y="390" text-anchor="middle" font-size="12" font-weight="bold">42 м</text>
+
+  <line x1="950" y1="130" x2="950" y2="350" stroke="#333"/>
+  <text x="965" y="245" text-anchor="middle" font-size="12" font-weight="bold" transform="rotate(90,965,245)">12 м</text>
+
+  <!-- Street -->
+  <rect x="930" y="80" width="30" height="270" fill="#aab7b8"/>
+  <text x="945" y="220" text-anchor="middle" font-size="11" fill="#fff" transform="rotate(90,945,220)">улица (восток)</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#27ae60"/>
+    </marker>
+  </defs>
+</svg>
+
+<div class="legend">
+  <span><i style="background:#d5dbdb"></i>дом</span>
+  <span><i style="background:#e8f4f8"></i>парковка/навес</span>
+  <span><i style="background:#d5f5e3"></i>сад/двор</span>
+  <span><i style="background:#bdc3c7"></i>коммерция (сосед)</span>
+  <span><i style="background:#e8d5b7"></i>терраса</span>
+</div>
+
+<h3>Логика размещения</h3>
+<div class="grid grid-2">
+  <div class="card">
+    <h4>Дом прижат к северу</h4>
+    Отступ 1 м от коммерческого здания. Северная стена дома — глухая (без окон),
+    что одновременно: 1) даёт защиту от северного ветра, 2) экономит ширину участка, 3) скрывает вид на торец маркета.
+  </div>
+  <div class="card">
+    <h4>Южный фасад открыт солнцу</h4>
+    Отступ 3 м к соседу №36 (норма СНиП РК). На южной стене — большие окна студии и спален. Солнце с утра до вечера.
+  </div>
+  <div class="card">
+    <h4>Зонирование «улица → дом → сад»</h4>
+    Восток: парковка + навес 6×3 м (~11 м). Центр: дом 15 м. Запад: сад/огород/барбекю ~16 м — самая приватная часть.
+  </div>
+  <div class="card">
+    <h4>Навес из поликарбоната</h4>
+    Каркас — профтруба 80×80 мм, монолитное основание. Поликарбонат 10 мм сотовый.
+    Уклон 7° для схода снега. Можно совместить с козырьком над входом.
+  </div>
+</div>
+
+<div class="warn">
+<b>⚠ Важно по отступам:</b> отступ 1 м от северного забора (к коммерции) требует
+<b>письменного согласования с акиматом</b> или с собственником коммерции (по факту проще, т.к. это нежилое здание и окон с их стороны нет). Если согласовать не получится — дом сместить и сделать его 6 × 20 м (та же площадь, но «пенал»).
+</div>
+
+<!-- ============ 2. ПЛАН ДОМА ============ -->
+<h2 id="house">2. План дома</h2>
+
+<p>Кухня-студия — справа (восточная часть, у входа), спальни — слева (западная часть, тише).
+Все жилые комнаты окнами на юг. Северная стена — технические помещения (санузлы, котельная, кладовая).</p>
+
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+  <!-- Compass mini -->
+  <g transform="translate(20,20)">
+    <text x="0" y="10" font-size="11" font-weight="bold" fill="#c0392b">С ↑</text>
+    <text x="0" y="28" font-size="10" fill="#666">Ю ↓</text>
+  </g>
+  <text x="700" y="25" font-size="11" fill="#666">→ В (вход)</text>
+  <text x="100" y="25" font-size="11" fill="#666">← З (терраса)</text>
+
+  <!-- Outer walls (8m × 15m), scale ~45px/m → 360 × 675 — too wide; use 600 × 320 -->
+  <!-- Use 40px/m: 8m=320px, 15m=600px -->
+
+  <!-- House outline -->
+  <rect x="100" y="60" width="600" height="320" fill="#fff" stroke="#1a1a1a" stroke-width="4"/>
+
+  <!-- North wall label -->
+  <text x="400" y="50" text-anchor="middle" font-size="11" fill="#c0392b">СЕВЕРНАЯ СТЕНА (глухая, утеплённая, отступ 1 м к маркету)</text>
+
+  <!-- South wall label -->
+  <text x="400" y="400" text-anchor="middle" font-size="11" fill="#e67e22">ЮЖНАЯ СТЕНА — большие окна ☀</text>
+
+  <!-- ============ ROOMS ============ -->
+  <!-- Coordinates: x=100..700 (15m, 40px/m), y=60..380 (8m, 40px/m) -->
+  <!-- Layout (left to right = west to east, top to bottom = north to south):
+       NORTH ROW (y=60..180, 3m deep):
+         Котельная(2x3) | Туалет(1.5x3) | Ванная(2x3) | Кладовая(1.5x3) | Прихожая(3x3) | Тамбур(2x3)+входная
+         Wait, total 15m wide. Let me allocate:
+         Котельная 2.5m | Туалет 1.5m | Ванная 2.5m | Коридор 3m | Кладовая 1.5m | Прихожая 4m
+         = 15m ✓
+       SOUTH ROW (y=180..380, 5m deep):
+         Спальня2 (3.5x5) | Спальня1 (3.5x5) | Мастер (4x5) | Студия (4x5)
+         = 15m ✓
+  -->
+
+  <!-- North row -->
+  <!-- Котельная -->
+  <rect x="100" y="60" width="100" height="120" fill="#f4ead5" stroke="#999"/>
+  <text x="150" y="115" text-anchor="middle" font-size="12" font-weight="bold">Котельная</text>
+  <text x="150" y="132" text-anchor="middle" font-size="10" fill="#666">5 м²</text>
+  <text x="150" y="148" text-anchor="middle" font-size="10" fill="#666">2.5 × 2 м</text>
+
+  <!-- Туалет -->
+  <rect x="200" y="60" width="60" height="120" fill="#e8f4f8" stroke="#999"/>
+  <text x="230" y="110" text-anchor="middle" font-size="11" font-weight="bold">Туалет</text>
+  <text x="230" y="126" text-anchor="middle" font-size="9" fill="#666">3 м²</text>
+  <text x="230" y="140" text-anchor="middle" font-size="9" fill="#666">1.5×2</text>
+
+  <!-- Ванная -->
+  <rect x="260" y="60" width="100" height="120" fill="#e8f4f8" stroke="#999"/>
+  <text x="310" y="115" text-anchor="middle" font-size="12" font-weight="bold">Ванная</text>
+  <text x="310" y="132" text-anchor="middle" font-size="10" fill="#666">5 м²</text>
+  <text x="310" y="148" text-anchor="middle" font-size="10" fill="#666">2.5 × 2 м</text>
+
+  <!-- Коридор -->
+  <rect x="360" y="60" width="120" height="120" fill="#fdf6e3" stroke="#999"/>
+  <text x="420" y="115" text-anchor="middle" font-size="12" font-weight="bold">Коридор</text>
+  <text x="420" y="132" text-anchor="middle" font-size="10" fill="#666">6 м²</text>
+  <text x="420" y="148" text-anchor="middle" font-size="10" fill="#666">3 × 2 м</text>
+
+  <!-- Кладовая -->
+  <rect x="480" y="60" width="60" height="120" fill="#f4ead5" stroke="#999"/>
+  <text x="510" y="115" text-anchor="middle" font-size="11" font-weight="bold">Кладов.</text>
+  <text x="510" y="132" text-anchor="middle" font-size="9" fill="#666">3 м²</text>
+
+  <!-- Прихожая + тамбур -->
+  <rect x="540" y="60" width="160" height="120" fill="#fdf6e3" stroke="#999"/>
+  <text x="620" y="105" text-anchor="middle" font-size="13" font-weight="bold">Прихожая + тамбур</text>
+  <text x="620" y="125" text-anchor="middle" font-size="10" fill="#666">8 м²</text>
+  <text x="620" y="142" text-anchor="middle" font-size="10" fill="#666">4 × 2 м</text>
+
+  <!-- Entry door indicator -->
+  <rect x="690" y="160" width="14" height="20" fill="#27ae60"/>
+  <text x="715" y="175" font-size="10" fill="#27ae60">вход</text>
+
+  <!-- Internal wall between north and south rows -->
+  <line x1="100" y1="180" x2="700" y2="180" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- South row -->
+  <!-- Спальня 2 (запад) -->
+  <rect x="100" y="180" width="140" height="200" fill="#fadbd8" stroke="#999"/>
+  <text x="170" y="265" text-anchor="middle" font-size="13" font-weight="bold">Спальня 2</text>
+  <text x="170" y="285" text-anchor="middle" font-size="11" fill="#666">14 м²</text>
+  <text x="170" y="305" text-anchor="middle" font-size="11" fill="#666">3.5 × 5 м</text>
+
+  <!-- Window south -->
+  <rect x="125" y="376" width="90" height="6" fill="#aed6f1"/>
+
+  <!-- Спальня 1 -->
+  <rect x="240" y="180" width="140" height="200" fill="#fadbd8" stroke="#999"/>
+  <text x="310" y="265" text-anchor="middle" font-size="13" font-weight="bold">Спальня 1</text>
+  <text x="310" y="285" text-anchor="middle" font-size="11" fill="#666">14 м²</text>
+  <text x="310" y="305" text-anchor="middle" font-size="11" fill="#666">3.5 × 5 м</text>
+  <rect x="265" y="376" width="90" height="6" fill="#aed6f1"/>
+
+  <!-- Мастер-спальня -->
+  <rect x="380" y="180" width="160" height="200" fill="#f5cba7" stroke="#999"/>
+  <text x="460" y="265" text-anchor="middle" font-size="14" font-weight="bold">Мастер-спальня</text>
+  <text x="460" y="285" text-anchor="middle" font-size="11" fill="#666">18 м²</text>
+  <text x="460" y="305" text-anchor="middle" font-size="11" fill="#666">4 × 5 м</text>
+  <rect x="405" y="376" width="110" height="6" fill="#aed6f1"/>
+
+  <!-- Кухня-студия -->
+  <rect x="540" y="180" width="160" height="200" fill="#d4efdf" stroke="#999"/>
+  <text x="620" y="245" text-anchor="middle" font-size="14" font-weight="bold">КУХНЯ-СТУДИЯ</text>
+  <text x="620" y="265" text-anchor="middle" font-size="11" fill="#666">(кухня + гостиная)</text>
+  <text x="620" y="290" text-anchor="middle" font-size="12" fill="#666">42 м²</text>
+  <text x="620" y="310" text-anchor="middle" font-size="11" fill="#666">4 × 5 м (+ восток 4×5)</text>
+
+  <!-- Big window south + east -->
+  <rect x="565" y="376" width="120" height="6" fill="#aed6f1"/>
+  <rect x="694" y="200" width="6" height="160" fill="#aed6f1"/>
+
+  <!-- Терраса (запад) -->
+  <rect x="40" y="220" width="60" height="120" fill="#e8d5b7" stroke="#a0522d" stroke-dasharray="3,2"/>
+  <text x="70" y="280" text-anchor="middle" font-size="11" fill="#8b4513">Терраса</text>
+  <text x="70" y="295" text-anchor="middle" font-size="9" fill="#8b4513">3×4 м</text>
+
+  <!-- Dimensions -->
+  <line x1="100" y1="430" x2="700" y2="430" stroke="#333"/>
+  <text x="400" y="448" text-anchor="middle" font-size="12" font-weight="bold">15 м</text>
+  <line x1="730" y1="60" x2="730" y2="380" stroke="#333"/>
+  <text x="745" y="220" text-anchor="middle" font-size="12" font-weight="bold" transform="rotate(90,745,220)">8 м</text>
+</svg>
+
+<div class="legend">
+  <span><i style="background:#d4efdf"></i>студия</span>
+  <span><i style="background:#fadbd8"></i>спальни</span>
+  <span><i style="background:#f5cba7"></i>мастер</span>
+  <span><i style="background:#e8f4f8"></i>санузлы</span>
+  <span><i style="background:#fdf6e3"></i>прихожая/коридор</span>
+  <span><i style="background:#f4ead5"></i>технические</span>
+  <span><i style="background:#aed6f1"></i>окна</span>
+</div>
+
+<h3>Площади помещений</h3>
+<table>
+  <thead><tr><th>Помещение</th><th>Размер</th><th class="num">Площадь</th><th>Особенности</th></tr></thead>
+  <tbody>
+    <tr><td>Тамбур + прихожая</td><td>4 × 2 м</td><td class="num">8 м²</td><td>Вход с востока, шкаф для одежды</td></tr>
+    <tr><td>Кухня-студия (гостиная + кухня)</td><td>~7 × 6 м</td><td class="num">42 м²</td><td>Окна на юг и восток, выход на террасу</td></tr>
+    <tr><td>Мастер-спальня</td><td>4 × 5 м</td><td class="num">18 м²</td><td>Окно на юг, место под гардеробную</td></tr>
+    <tr><td>Спальня 1</td><td>3.5 × 5 м</td><td class="num">14 м²</td><td>Окно на юг</td></tr>
+    <tr><td>Спальня 2</td><td>3.5 × 5 м</td><td class="num">14 м²</td><td>Окно на юг, выход на террасу</td></tr>
+    <tr><td>Ванная</td><td>2.5 × 2 м</td><td class="num">5 м²</td><td>Ванна, раковина, стиральная машина</td></tr>
+    <tr><td>Туалет</td><td>1.5 × 2 м</td><td class="num">3 м²</td><td>Унитаз, раковина</td></tr>
+    <tr><td>Котельная</td><td>2.5 × 2 м</td><td class="num">5 м²</td><td>Котёл, бойлер, отдельный вход с улицы (норма)</td></tr>
+    <tr><td>Кладовая</td><td>1.5 × 2 м</td><td class="num">3 м²</td><td>Хранение</td></tr>
+    <tr><td>Коридор</td><td>3 × 2 м</td><td class="num">6 м²</td><td>Связь между зонами</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="2">ИТОГО полезная площадь</td><td class="num">118 м²</td><td>+ ~2 м² на стены = 120 м²</td></tr>
+  </tfoot>
+</table>
+
+<!-- ============ 3. КОНСТРУКТИВ ============ -->
+<h2 id="construction">3. Конструктив</h2>
+
+<div class="warn">
+<b>Сейсмика 9 баллов</b> (Алматинская область) диктует жёсткие требования: монолитный каркас обязателен,
+все узлы сопряжения армируются, никаких сборных перекрытий — только монолит, антисейсмические пояса
+поверх стен под перекрытием.
+</div>
+
+<h3>3.1 Фундамент — монолитная плита 300 мм</h3>
+<div class="card">
+  <p>В Алматинской области грунты в основном <b>лёссовые, просадочные</b> — при намокании теряют несущую способность.
+  Поэтому ленточный фундамент рискован, нужна <b>монолитная плита</b>.</p>
+
+  <h4>Пирог снизу вверх:</h4>
+  <ol>
+    <li>Снятие плодородного слоя — 30 см</li>
+    <li>Песчаная подушка трамбованная — 30 см</li>
+    <li>Щебень фракции 20–40 мм — 15 см</li>
+    <li>Геотекстиль</li>
+    <li>Бетонная подготовка (тощий бетон B7.5) — 5 см</li>
+    <li>Гидроизоляция — 2 слоя ТехноНИКОЛЬ ХПП</li>
+    <li>Утеплитель ЭППС 100 мм (по периметру 1 м внутрь)</li>
+    <li><b>Монолитная плита B25 W6 F150 — 300 мм</b></li>
+    <li>Армирование: 2 сетки ⌀14 мм A500C, шаг 200 мм, защитный слой 35 мм</li>
+  </ol>
+  <p class="footnote">Перед заливкой обязательна геология участка (2–3 скважины, 5–8 м). Стоимость геологии — 80–150 тыс. тг.</p>
+</div>
+
+<h3>3.2 Каркас — монолитный ж/б</h3>
+<div class="card">
+  <h4>Колонны</h4>
+  <ul>
+    <li>Сечение <b>400 × 400 мм</b>, бетон B25</li>
+    <li>Расположение: по углам дома + в местах пересечения внутренних несущих стен</li>
+    <li>Шаг — не более 4 м</li>
+    <li>Армирование: 4⌀16 + хомуты ⌀8 шаг 100 мм (200 мм в средней части)</li>
+    <li>Всего колонн на дом 8×15: <b>~12 шт</b></li>
+  </ul>
+
+  <h4>Ригели (балки)</h4>
+  <ul>
+    <li>Сечение 300 × 400 мм, по верху колонн</li>
+    <li>Армирование: 4⌀14 верх + 4⌀14 низ, хомуты ⌀8 шаг 150 мм</li>
+  </ul>
+
+  <h4>Перекрытие</h4>
+  <ul>
+    <li><b>Монолитная плита 200 мм</b> (НЕ сборные плиты — для сейсмики)</li>
+    <li>Армирование: 2 сетки ⌀12 мм, шаг 200 мм</li>
+    <li>Объём: 120 м² × 0.2 = <b>24 м³ бетона B25</b></li>
+  </ul>
+
+  <h4>Антисейсмический пояс</h4>
+  <ul>
+    <li>Поверх внешних стен под перекрытием — обязательно</li>
+    <li>Сечение 400 × 200 мм, армирование 4⌀12 + хомуты ⌀6 шаг 200 мм</li>
+    <li>Связан с колоннами в монолит</li>
+  </ul>
+</div>
+
+<h3>3.3 Стены</h3>
+<div class="grid grid-2">
+  <div class="card">
+    <h4>Внешние — газоблок D500 400 мм</h4>
+    <ul>
+      <li>Газоблок автоклавный <b>D500, 600 × 400 × 250 мм</b></li>
+      <li>Кладка на клей-пену или цементно-клеевой раствор (шов 2–3 мм)</li>
+      <li>Армирование сеткой каждые 3 ряда (~75 см)</li>
+      <li>Гибкие связи к ж/б колоннам — каждые 4 ряда</li>
+      <li>U-блоки для оконных перемычек + армопояс</li>
+      <li><b>Без доп. утепления</b> — газоблок D500/400 даёт R ≈ 3.0 м²·К/Вт, для климата Алматы достаточно (норма 3.34, добираем штукатуркой и фасадом)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Внутренние — газоблок 100–150 мм</h4>
+    <ul>
+      <li>Перегородки между комнатами — газоблок D500 100 мм</li>
+      <li>Стены санузлов — газоблок 150 мм (звукоизоляция)</li>
+      <li>Не делаем монолит для перегородок — лишний вес → больше нагрузка на фундамент при землетрясении</li>
+    </ul>
+  </div>
+</div>
+
+<h3>3.4 Кровля — двускатная или вальмовая</h3>
+<div class="card">
+  <h4>Состав:</h4>
+  <ul>
+    <li>Стропильная система — брус 50 × 200 мм, шаг 600 мм, обработка антисептиком + антипиреном</li>
+    <li>Утеплитель — минвата 200 мм (Rockwool / ТехноНИКОЛЬ)</li>
+    <li>Пароизоляция снизу, гидро-ветрозащита сверху</li>
+    <li>Обрешётка — доска 25×100 мм</li>
+    <li>Покрытие — металлочерепица или фальц (по бюджету)</li>
+    <li>Уклон 25–35° (для снеговой нагрузки Алматы)</li>
+    <li>Площадь кровли с учётом свесов: ~145 м²</li>
+  </ul>
+</div>
+
+<h3>3.5 Окна и двери</h3>
+<table>
+  <thead><tr><th>Тип</th><th>Размер</th><th class="num">Кол-во</th><th>Расположение</th></tr></thead>
+  <tbody>
+    <tr><td>Окно ПВХ панорамное</td><td>2.5 × 2.0 м</td><td class="num">2</td><td>Студия (юг + восток)</td></tr>
+    <tr><td>Окно ПВХ</td><td>1.5 × 1.8 м</td><td class="num">3</td><td>Спальни (юг)</td></tr>
+    <tr><td>Окно ПВХ малое</td><td>0.6 × 0.6 м</td><td class="num">2</td><td>Санузлы (север)</td></tr>
+    <tr><td>Дверь входная металлическая</td><td>0.9 × 2.1 м</td><td class="num">1</td><td>Восток (вход)</td></tr>
+    <tr><td>Дверь котельной (наружу)</td><td>0.8 × 2.0 м</td><td class="num">1</td><td>Север (норма газоснабжения)</td></tr>
+    <tr><td>Дверь террасы (раздвижная)</td><td>2.0 × 2.1 м</td><td class="num">1</td><td>Запад (выход на террасу)</td></tr>
+    <tr><td>Двери межкомнатные</td><td>0.8 × 2.0 м</td><td class="num">7</td><td>Внутри дома</td></tr>
+  </tbody>
+</table>
+
+<h3>3.6 Инженерные системы</h3>
+<div class="grid grid-2">
+  <div class="card">
+    <h4>Отопление</h4>
+    Газовый котёл 24 кВт (Bosch / Vaillant / Baxi), радиаторы + тёплый пол в санузлах и кухне-студии.
+    Бойлер 100 л.
+  </div>
+  <div class="card">
+    <h4>Водоснабжение</h4>
+    Подключение к центральному водопроводу или скважина (~30–60 м, цена скважины 600–1500 тг/м).
+    Фильтр грубой очистки + умягчение.
+  </div>
+  <div class="card">
+    <h4>Канализация</h4>
+    Подключение к центральной (если есть) или септик «Топас» / ЛОС на 5 человек (~500 тыс. тг).
+  </div>
+  <div class="card">
+    <h4>Электрика</h4>
+    Ввод 15 кВт, 3 фазы. Заземление контурное. Автоматика ABB / Schneider. Кабель ВВГнг-LS.
+  </div>
+</div>
+
+<!-- ============ 4. МАТЕРИАЛЫ ============ -->
+<h2 id="materials">4. Спецификация материалов</h2>
+
+<h3>Фундамент</h3>
+<table>
+  <thead><tr><th>Материал</th><th class="num">Кол-во</th><th>Примечание</th></tr></thead>
+  <tbody>
+    <tr><td>Песок строительный</td><td class="num">36 м³</td><td>Подушка 30 см под плитой</td></tr>
+    <tr><td>Щебень 20–40 мм</td><td class="num">18 м³</td><td>Дренажный слой</td></tr>
+    <tr><td>Геотекстиль</td><td class="num">130 м²</td><td>Между подушкой и бетоном</td></tr>
+    <tr><td>Бетон B7.5 (подбетонка)</td><td class="num">6 м³</td><td>Подготовка 5 см</td></tr>
+    <tr><td>Бетон B25 W6 F150</td><td class="num">38 м³</td><td>Плита 300 мм, 125 м²</td></tr>
+    <tr><td>Арматура A500C ⌀14</td><td class="num">3.5 т</td><td>2 сетки 200×200 мм</td></tr>
+    <tr><td>Арматура ⌀8 (хомуты, фиксаторы)</td><td class="num">0.4 т</td><td></td></tr>
+    <tr><td>ЭППС 100 мм</td><td class="num">125 м²</td><td>Утепление по периметру</td></tr>
+    <tr><td>Гидроизоляция (рулонная)</td><td class="num">260 м²</td><td>2 слоя</td></tr>
+  </tbody>
+</table>
+
+<h3>Каркас и перекрытие</h3>
+<table>
+  <thead><tr><th>Материал</th><th class="num">Кол-во</th><th>Примечание</th></tr></thead>
+  <tbody>
+    <tr><td>Бетон B25 (колонны + ригели)</td><td class="num">12 м³</td><td>12 колонн 400×400 + ригели</td></tr>
+    <tr><td>Бетон B25 (перекрытие)</td><td class="num">24 м³</td><td>Плита 200 мм, 120 м²</td></tr>
+    <tr><td>Бетон B25 (антисейсмопояс)</td><td class="num">3.7 м³</td><td>46 п.м. × 0.4 × 0.2</td></tr>
+    <tr><td>Арматура A500C ⌀16 (колонны)</td><td class="num">1.5 т</td><td>4⌀16 на колонну</td></tr>
+    <tr><td>Арматура A500C ⌀14 (ригели + пояс)</td><td class="num">1.8 т</td><td></td></tr>
+    <tr><td>Арматура A500C ⌀12 (перекрытие)</td><td class="num">2.4 т</td><td>2 сетки 200×200</td></tr>
+    <tr><td>Арматура ⌀8 (хомуты)</td><td class="num">0.7 т</td><td></td></tr>
+    <tr><td>Опалубка (фанера ламин. 18 мм)</td><td class="num">~80 листов</td><td>Многоразовая, можно арендовать</td></tr>
+  </tbody>
+</table>
+
+<h3>Стены</h3>
+<table>
+  <thead><tr><th>Материал</th><th class="num">Кол-во</th><th>Примечание</th></tr></thead>
+  <tbody>
+    <tr><td>Газоблок D500 600×400×250 (наружные)</td><td class="num">~830 шт (50 м³)</td><td>Стены 400 мм, периметр 46 п.м., высота 3.2 м, минус проёмы</td></tr>
+    <tr><td>Газоблок D500 600×100×250 (перегородки)</td><td class="num">~750 шт (11 м³)</td><td>~110 м² перегородок</td></tr>
+    <tr><td>Газоблок D500 600×150×250 (санузлы)</td><td class="num">~120 шт (3 м³)</td><td>~20 м² стен санузлов</td></tr>
+    <tr><td>Клей для газоблока</td><td class="num">35 мешков по 25 кг</td><td>~1 мешок на 1 м³</td></tr>
+    <tr><td>Кладочная сетка</td><td class="num">200 п.м.</td><td>Каждые 3 ряда</td></tr>
+    <tr><td>U-блоки для перемычек</td><td class="num">25 шт</td><td>Над окнами/дверями</td></tr>
+    <tr><td>Гибкие связи к колоннам</td><td class="num">200 шт</td><td></td></tr>
+  </tbody>
+</table>
+
+<h3>Кровля</h3>
+<table>
+  <thead><tr><th>Материал</th><th class="num">Кол-во</th><th>Примечание</th></tr></thead>
+  <tbody>
+    <tr><td>Брус 50 × 200 мм (стропила)</td><td class="num">5 м³</td><td>Антисептик обязателен</td></tr>
+    <tr><td>Брус 50 × 100 мм (мауэрлат, обрешётка контр.)</td><td class="num">2 м³</td><td></td></tr>
+    <tr><td>Доска 25 × 100 мм (обрешётка)</td><td class="num">1.5 м³</td><td></td></tr>
+    <tr><td>Минвата 200 мм</td><td class="num">~30 м³</td><td>Утепление кровли</td></tr>
+    <tr><td>Пароизоляция</td><td class="num">160 м²</td><td></td></tr>
+    <tr><td>Гидро-ветрозащитная мембрана</td><td class="num">160 м²</td><td></td></tr>
+    <tr><td>Металлочерепица или фальц</td><td class="num">150 м²</td><td>С учётом нахлёста</td></tr>
+    <tr><td>Доборные элементы (коньки, ендовы, отливы)</td><td class="num">комплект</td><td></td></tr>
+    <tr><td>Водосточная система</td><td class="num">~50 п.м.</td><td>Желоба + трубы</td></tr>
+  </tbody>
+</table>
+
+<!-- ============ 5. СМЕТА ============ -->
+<h2 id="cost">5. Смета по этапам</h2>
+
+<div class="warn">
+Цены ориентировочные на 2026 год для Алматинской области. Колебания ±20% по поставщикам и сезону.
+Указаны только материалы и работа по строительству. Чистовая отделка, мебель, техника — отдельно.
+</div>
+
+<table>
+  <thead><tr><th>Этап</th><th>Состав</th><th class="num">Материалы (тг)</th><th class="num">Работа (тг)</th><th class="num">Итого (тг)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>0. Подготовка</b></td>
+      <td>Геология, проект, разрешение, разметка участка</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">800 000</td>
+    </tr>
+    <tr>
+      <td><b>1. Земляные работы</b></td>
+      <td>Снятие грунта, вывоз, подушка из песка/щебня</td>
+      <td class="num">350 000</td>
+      <td class="num">450 000</td>
+      <td class="num">800 000</td>
+    </tr>
+    <tr>
+      <td><b>2. Фундамент</b></td>
+      <td>Монолитная плита 300 мм, армирование, утепление</td>
+      <td class="num">3 200 000</td>
+      <td class="num">1 800 000</td>
+      <td class="num">5 000 000</td>
+    </tr>
+    <tr>
+      <td><b>3. Каркас + перекрытие</b></td>
+      <td>Монолитные колонны, ригели, плита перекрытия, антисейсмопояс</td>
+      <td class="num">3 800 000</td>
+      <td class="num">2 700 000</td>
+      <td class="num">6 500 000</td>
+    </tr>
+    <tr>
+      <td><b>4. Стены</b></td>
+      <td>Газоблок наружные 400 мм + перегородки, армирование</td>
+      <td class="num">2 600 000</td>
+      <td class="num">1 400 000</td>
+      <td class="num">4 000 000</td>
+    </tr>
+    <tr>
+      <td><b>5. Кровля</b></td>
+      <td>Стропилка, утепление, металлочерепица, водостоки</td>
+      <td class="num">2 800 000</td>
+      <td class="num">1 200 000</td>
+      <td class="num">4 000 000</td>
+    </tr>
+    <tr>
+      <td><b>6. Окна и двери</b></td>
+      <td>ПВХ-окна, входная дверь, межкомнатные</td>
+      <td class="num">2 200 000</td>
+      <td class="num">300 000</td>
+      <td class="num">2 500 000</td>
+    </tr>
+    <tr>
+      <td><b>7. Инженерка (черновая)</b></td>
+      <td>Электрика, водоснабжение, канализация, отопление, котёл</td>
+      <td class="num">3 500 000</td>
+      <td class="num">2 000 000</td>
+      <td class="num">5 500 000</td>
+    </tr>
+    <tr>
+      <td><b>8. Чистовая отделка</b></td>
+      <td>Штукатурка, стяжка, плитка, ламинат, покраска, потолки</td>
+      <td class="num">4 500 000</td>
+      <td class="num">3 500 000</td>
+      <td class="num">8 000 000</td>
+    </tr>
+    <tr>
+      <td><b>9. Фасад</b></td>
+      <td>Штукатурка короед / клинкер / вентфасад</td>
+      <td class="num">1 500 000</td>
+      <td class="num">1 000 000</td>
+      <td class="num">2 500 000</td>
+    </tr>
+    <tr>
+      <td><b>10. Благоустройство</b></td>
+      <td>Навес 6×3 м, забор, дорожки, газон, септик</td>
+      <td class="num">2 200 000</td>
+      <td class="num">1 300 000</td>
+      <td class="num">3 500 000</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">ИТОГО по дому «под ключ»</td>
+      <td class="num">26 650 000</td>
+      <td class="num">15 650 000</td>
+      <td class="num">~42 000 000 тг</td>
+    </tr>
+    <tr>
+      <td colspan="4">Стоимость 1 м² (под ключ)</td>
+      <td class="num">~350 000 тг/м²</td>
+    </tr>
+  </tfoot>
+</table>
+
+<div class="ok">
+<b>Можно сэкономить 15–25%</b>, если:
+<ul style="margin:6px 0">
+  <li>Вести строительство хозспособом (свой прораб + бригады), не через генподряд</li>
+  <li>Закупать материалы напрямую у производителей (газоблок, бетон, металл)</li>
+  <li>Делать отделку поэтапно, въехать сразу после черновой</li>
+  <li>Кровлю — фальц или профнастил вместо металлочерепицы</li>
+</ul>
+</div>
+
+<h3>Резерв на непредвиденное</h3>
+<p>Закладывайте <b>+15% от сметы</b> на непредвиденные расходы (изменения, удорожание материалов, ошибки бригад).
+Реальный бюджет на проект — <b>~48 млн тг</b>.</p>
+
+<!-- ============ 6. ГРАФИК ============ -->
+<h2 id="schedule">6. График работ</h2>
+
+<p>Ориентировочный срок строительства <b>«под ключ» — 10–14 месяцев</b>. Оптимально начать
+весной (март–апрель), чтобы коробку и кровлю закрыть до зимы.</p>
+
+<div class="phase">
+  <div class="phase-num">1</div>
+  <div class="phase-body">
+    <h4>Подготовка и проектирование</h4>
+    <div class="when">Январь–февраль · 4–6 недель</div>
+    Геология, рабочий проект (АР, КЖ, ОВ, ВК, ЭО), разрешение на строительство в акимате,
+    топосъёмка, согласование подключения к коммуникациям.
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-num">2</div>
+  <div class="phase-body">
+    <h4>Земляные работы и фундамент</h4>
+    <div class="when">Март–апрель · 4–5 недель</div>
+    Разбивка осей, котлован, подушка, опалубка, армирование, заливка плиты, набор прочности (28 дней).
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-num">3</div>
+  <div class="phase-body">
+    <h4>Монолитный каркас и стены</h4>
+    <div class="when">Май–июль · 8–10 недель</div>
+    Колонны (армирование + опалубка + бетон), кладка газоблока, ригели, антисейсмопояс,
+    монолитное перекрытие.
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-num">4</div>
+  <div class="phase-body">
+    <h4>Кровля и закрытие контура</h4>
+    <div class="when">Август–сентябрь · 6 недель</div>
+    Стропильная система, утепление, металлочерепица, водостоки. Установка окон и входной двери —
+    к этому моменту дом «под крышей и закрыт».
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-num">5</div>
+  <div class="phase-body">
+    <h4>Черновая инженерка</h4>
+    <div class="when">Октябрь–ноябрь · 5–6 недель</div>
+    Электрика (штробы, кабель), вода, канализация, отопление (трубы, котёл), вентиляция.
+    К зиме — отапливаемый дом для зимней отделки.
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-num">6</div>
+  <div class="phase-body">
+    <h4>Чистовая отделка</h4>
+    <div class="when">Декабрь–март · 14–16 недель</div>
+    Штукатурка, стяжка с тёплым полом, плитка, ламинат, покраска, натяжные потолки,
+    установка межкомнатных дверей, монтаж сантехники, розеток, светильников.
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-num">7</div>
+  <div class="phase-body">
+    <h4>Фасад и благоустройство</h4>
+    <div class="when">Апрель–июнь след. года · 8 недель</div>
+    Штукатурка фасада, навес, забор, дорожки, газон, посадки, септик подключить.
+  </div>
+</div>
+
+<!-- ============ 7. ЧЕКЛИСТЫ ============ -->
+<h2 id="checklist">7. Чек-листы приёмки работ</h2>
+
+<h3>Приёмка фундамента</h3>
+<ul class="checklist">
+  <li>Геометрия плиты соответствует проекту (диагонали, размеры в плане)</li>
+  <li>Уровень верха плиты — отклонение ≤ 5 мм на 3 м</li>
+  <li>Защитный слой бетона до арматуры — не менее 35 мм (видны фиксаторы)</li>
+  <li>Армирование двухслойное, шаг 200 мм, нахлёсты ≥ 40d</li>
+  <li>Заливка одним днём, без «холодных швов»</li>
+  <li>Бетон — паспорт качества от завода, марка B25 W6 F150</li>
+  <li>Уход за бетоном: укрытие плёнкой, полив 7 дней</li>
+  <li>Гидроизоляция выполнена сплошным ковром, без разрывов</li>
+</ul>
+
+<h3>Приёмка каркаса</h3>
+<ul class="checklist">
+  <li>Колонны строго вертикально (отклонение ≤ 5 мм на этаж)</li>
+  <li>Армирование колонн соответствует проекту (4⌀16 + хомуты ⌀8 шаг 100/200)</li>
+  <li>Хомуты в зоне сопряжения с ригелем — учащённые (шаг 50–100 мм)</li>
+  <li>Опалубка чистая, обработана разделителем</li>
+  <li>Бетон уплотнён вибратором, без раковин и пустот</li>
+  <li>Антисейсмопояс непрерывный по всему периметру</li>
+  <li>Перекрытие монолитное (НЕ сборные плиты!)</li>
+</ul>
+
+<h3>Приёмка кладки газоблока</h3>
+<ul class="checklist">
+  <li>Первый ряд на гидроизоляцию, выровнен по уровню</li>
+  <li>Толщина шва не более 3 мм (на клей)</li>
+  <li>Перевязка швов не менее 100 мм</li>
+  <li>Армирование сеткой каждые 3 ряда</li>
+  <li>Гибкие связи к колоннам каждые 4 ряда</li>
+  <li>U-блоки + арматура над окнами/дверями</li>
+  <li>Стены ровные (отклонение ≤ 10 мм на 3 м)</li>
+</ul>
+
+<h3>Приёмка кровли</h3>
+<ul class="checklist">
+  <li>Все деревянные элементы обработаны антисептиком + антипиреном</li>
+  <li>Стропила одного сечения, шаг по проекту</li>
+  <li>Утеплитель уложен без щелей, в распор</li>
+  <li>Пароизоляция — со стороны помещения, проклеены стыки</li>
+  <li>Гидро-ветрозащита — с провисом 20 мм между стропил</li>
+  <li>Контробрешётка для вентзазора 30–50 мм</li>
+  <li>Металлочерепица — нахлёст по инструкции, саморезы в волну</li>
+  <li>Снегозадержатели установлены</li>
+</ul>
+
+<h3>Приёмка инженерки</h3>
+<ul class="checklist">
+  <li>Электрика: кабель ВВГнг-LS, сечения по проекту, заземление контурное замерено</li>
+  <li>Опрессовка водопровода — давление 6 атм, держит 24 часа</li>
+  <li>Опрессовка отопления — давление 4 атм, держит 24 часа</li>
+  <li>Канализация: уклоны труб 2–3 см на метр</li>
+  <li>Котельная: вентиляция, дымоход, газоанализатор</li>
+  <li>Акт ввода газа от Алматыгаза (если центральный газ)</li>
+</ul>
+
+<hr style="margin:50px 0 20px; border:none; border-top:1px solid var(--line)">
+
+<p class="footnote" style="text-align:center">
+Документ — рабочая версия проекта. Все цифры (площади, объёмы материалов, сметы) уточняются
+после рабочего проектирования и геологии участка. Для согласования в акимате нужен проект
+от лицензированного проектировщика.
+</p>
+
+</body>
+</html>
