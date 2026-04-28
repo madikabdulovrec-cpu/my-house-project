@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- ===== DEFINITIONS ===== -->
+  <defs>
+    <!-- Hatching pattern for commercial building -->
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#7a8b99" stroke-width="1.2"/>
+    </pattern>
+
+    <!-- Grass pattern -->
+    <pattern id="grass" patternUnits="userSpaceOnUse" width="20" height="20">
+      <rect width="20" height="20" fill="#dcecd4"/>
+      <path d="M3 17 L3 13 M5 17 L7 11 M9 17 L9 14 M13 17 L15 12 M17 17 L17 13"
+        stroke="#9bbb88" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    </pattern>
+
+    <!-- Concrete (parking) -->
+    <pattern id="concrete" patternUnits="userSpaceOnUse" width="40" height="40">
+      <rect width="40" height="40" fill="#e8ebee"/>
+      <circle cx="8" cy="12" r="0.6" fill="#bcc3cb"/>
+      <circle cx="22" cy="6" r="0.5" fill="#bcc3cb"/>
+      <circle cx="32" cy="22" r="0.7" fill="#bcc3cb"/>
+      <circle cx="14" cy="28" r="0.5" fill="#bcc3cb"/>
+      <circle cx="28" cy="34" r="0.6" fill="#bcc3cb"/>
+      <circle cx="6" cy="36" r="0.5" fill="#bcc3cb"/>
+    </pattern>
+
+    <!-- Wood floor (terrace) -->
+    <pattern id="wood" patternUnits="userSpaceOnUse" width="30" height="10">
+      <rect width="30" height="10" fill="#d4b896"/>
+      <line x1="0" y1="0" x2="30" y2="0" stroke="#a08560" stroke-width="0.5"/>
+      <line x1="0" y1="10" x2="30" y2="10" stroke="#a08560" stroke-width="0.5"/>
+      <line x1="15" y1="0" x2="15" y2="10" stroke="#a08560" stroke-width="0.4"/>
+    </pattern>
+
+    <!-- House wall hatching (for concrete monolith) -->
+    <pattern id="wall-hatch" patternUnits="userSpaceOnUse" width="6" height="6">
+      <rect width="6" height="6" fill="#fafaf7"/>
+      <line x1="0" y1="6" x2="6" y2="0" stroke="#c4ccd3" stroke-width="0.6"/>
+    </pattern>
+
+    <!-- Drop shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="3" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.25"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Sun gradient -->
+    <radialGradient id="sun-grad">
+      <stop offset="0%" stop-color="#ffeb8a"/>
+      <stop offset="60%" stop-color="#f9c74f"/>
+      <stop offset="100%" stop-color="#f3a712"/>
+    </radialGradient>
+
+    <!-- Tree symbol -->
+    <symbol id="tree" viewBox="-20 -20 40 40">
+      <circle cx="0" cy="0" r="18" fill="#7fa569" stroke="#4d6b3d" stroke-width="1.2"/>
+      <circle cx="-6" cy="-6" r="6" fill="#a3c489" opacity="0.6"/>
+      <circle cx="6" cy="3" r="5" fill="#a3c489" opacity="0.5"/>
+      <line x1="0" y1="14" x2="0" y2="20" stroke="#5a3e1f" stroke-width="2"/>
+    </symbol>
+
+    <!-- Car symbol -->
+    <symbol id="car" viewBox="-50 -25 100 50">
+      <rect x="-45" y="-10" width="90" height="22" rx="6" fill="#5b8def" stroke="#2c4f9b" stroke-width="1.5"/>
+      <path d="M-30 -10 L-22 -22 L20 -22 L30 -10 Z" fill="#7da9f7" stroke="#2c4f9b" stroke-width="1.5"/>
+      <line x1="-3" y1="-22" x2="-3" y2="-10" stroke="#2c4f9b" stroke-width="1"/>
+      <circle cx="-28" cy="13" r="6" fill="#2a2a2a" stroke="#000" stroke-width="1"/>
+      <circle cx="-28" cy="13" r="2.5" fill="#666"/>
+      <circle cx="28" cy="13" r="6" fill="#2a2a2a" stroke="#000" stroke-width="1"/>
+      <circle cx="28" cy="13" r="2.5" fill="#666"/>
+      <rect x="38" y="-5" width="6" height="3" fill="#fff8a8"/>
+      <rect x="-44" y="-5" width="6" height="3" fill="#ffe2c4"/>
+    </symbol>
+
+    <!-- BBQ symbol -->
+    <symbol id="bbq" viewBox="-15 -15 30 30">
+      <ellipse cx="0" cy="-2" rx="12" ry="3" fill="#3a3a3a"/>
+      <path d="M-12 -2 L-8 12 M12 -2 L8 12" stroke="#3a3a3a" stroke-width="2"/>
+      <path d="M-3 -8 Q0 -12 3 -8" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M-1 -10 Q1 -13 2 -10" stroke="#f39c12" stroke-width="1.5" fill="none" opacity="0.6"/>
+    </symbol>
+
+    <!-- Bench -->
+    <symbol id="bench" viewBox="-20 -8 40 16">
+      <rect x="-18" y="-2" width="36" height="4" fill="#a0826d" stroke="#6f5841" stroke-width="0.8"/>
+      <rect x="-18" y="-7" width="36" height="2" fill="#a0826d" stroke="#6f5841" stroke-width="0.8"/>
+      <line x1="-15" y1="2" x2="-15" y2="6" stroke="#6f5841" stroke-width="1.5"/>
+      <line x1="15" y1="2" x2="15" y2="6" stroke="#6f5841" stroke-width="1.5"/>
+    </symbol>
+  </defs>
+
+  <!-- ===== BACKGROUND ===== -->
+  <rect width="1400" height="900" fill="#f5f1e8"/>
+
+  <!-- Subtle grid (5m = 30px) -->
+  <g stroke="#e6dfd0" stroke-width="0.5" opacity="0.6">
+    <line x1="100" y1="150" x2="100" y2="780"/>
+    <line x1="250" y1="150" x2="250" y2="780"/>
+    <line x1="400" y1="150" x2="400" y2="780"/>
+    <line x1="550" y1="150" x2="550" y2="780"/>
+    <line x1="700" y1="150" x2="700" y2="780"/>
+    <line x1="850" y1="150" x2="850" y2="780"/>
+    <line x1="1000" y1="150" x2="1000" y2="780"/>
+  </g>
+
+  <!-- ===== TITLE BLOCK ===== -->
+  <g>
+    <text x="60" y="60" font-size="32" font-weight="700" fill="#2c3e50" letter-spacing="-0.5">
+      ПЛАНОГРАММА УЧАСТКА
+    </text>
+    <text x="60" y="88" font-size="15" fill="#7a8a99" font-weight="400">
+      Жилой дом 20 × 6.5 м · Алматинская область · участок 15 × 27 м (4 сотки)
+    </text>
+    <line x1="60" y1="105" x2="800" y2="105" stroke="#c0392b" stroke-width="2"/>
+    <line x1="60" y1="111" x2="500" y2="111" stroke="#c0392b" stroke-width="0.8"/>
+  </g>
+
+  <!-- ===== COMPASS ROSE (top right) ===== -->
+  <g transform="translate(1280, 90)">
+    <circle cx="0" cy="0" r="48" fill="#fff" stroke="#2c3e50" stroke-width="1.5" filter="url(#shadow)"/>
+    <circle cx="0" cy="0" r="42" fill="none" stroke="#d5dbe0" stroke-width="0.8"/>
+    <!-- North arrow (red) -->
+    <path d="M0 -38 L8 0 L0 -8 L-8 0 Z" fill="#c0392b" stroke="#8b2818" stroke-width="0.8"/>
+    <path d="M0 38 L8 0 L0 8 L-8 0 Z" fill="#fff" stroke="#2c3e50" stroke-width="0.8"/>
+    <!-- Cross axes -->
+    <line x1="-38" y1="0" x2="-12" y2="0" stroke="#7a8a99" stroke-width="0.6"/>
+    <line x1="12" y1="0" x2="38" y2="0" stroke="#7a8a99" stroke-width="0.6"/>
+    <!-- Letters -->
+    <text x="0" y="-52" text-anchor="middle" font-size="16" font-weight="700" fill="#c0392b">N</text>
+    <text x="0" y="62" text-anchor="middle" font-size="13" fill="#7a8a99">S</text>
+    <text x="-52" y="5" text-anchor="middle" font-size="13" fill="#7a8a99">W</text>
+    <text x="52" y="5" text-anchor="middle" font-size="13" fill="#7a8a99">E</text>
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="2.5" fill="#2c3e50"/>
+  </g>
+
+  <!-- ===== SCALE: 27m × 15m plot. 30px/m → 810 × 450. Position x=200..1010, y=210..660 ===== -->
+
+  <!-- ===== COMMERCIAL BUILDING (north of plot) ===== -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="150" width="810" height="55" fill="url(#hatch)" stroke="#5a6975" stroke-width="2"/>
+    <rect x="200" y="150" width="810" height="55" fill="#7a8b99" opacity="0.15"/>
+  </g>
+  <text x="605" y="183" text-anchor="middle" font-size="18" font-weight="600" fill="#3c4a55">Нұрхат Market</text>
+  <text x="605" y="200" text-anchor="middle" font-size="12" fill="#5a6975">3-этажное коммерческое здание</text>
+
+  <!-- ===== PLOT BOUNDARY ===== -->
+  <g>
+    <!-- North fence (dashed) -->
+    <line x1="200" y1="208" x2="1010" y2="208" stroke="#c0392b" stroke-width="2" stroke-dasharray="8,4"/>
+    <!-- South fence -->
+    <line x1="200" y1="660" x2="1010" y2="660" stroke="#c0392b" stroke-width="2" stroke-dasharray="8,4"/>
+    <!-- West (back) -->
+    <line x1="200" y1="208" x2="200" y2="660" stroke="#c0392b" stroke-width="2" stroke-dasharray="8,4"/>
+    <!-- East (front, street side) -->
+    <line x1="1010" y1="208" x2="1010" y2="660" stroke="#c0392b" stroke-width="2" stroke-dasharray="8,4"/>
+  </g>
+
+  <!-- ===== SOUTH GARDEN ZONE (full plot width, 7.5m deep, y=405..660, 255px) ===== -->
+  <rect x="200" y="405" width="810" height="255" fill="url(#grass)"/>
+
+  <!-- Trees scattered in garden -->
+  <use href="#tree" x="280" y="490" width="40" height="40"/>
+  <use href="#tree" x="380" y="540" width="48" height="48"/>
+  <use href="#tree" x="500" y="480" width="36" height="36"/>
+  <use href="#tree" x="620" y="540" width="44" height="44"/>
+  <use href="#tree" x="780" y="490" width="40" height="40"/>
+  <use href="#tree" x="900" y="540" width="36" height="36"/>
+
+  <!-- BBQ -->
+  <use href="#bbq" x="450" y="560" width="40" height="40"/>
+  <text x="450" y="595" text-anchor="middle" font-size="11" fill="#1e6c3a" font-weight="600">БАРБЕКЮ</text>
+
+  <!-- Bench -->
+  <use href="#bench" x="700" y="600" width="55" height="22"/>
+
+  <!-- Garden bed -->
+  <rect x="820" y="610" width="170" height="35" fill="#a87c4f" stroke="#6b4f30" stroke-width="1" rx="3"/>
+  <line x1="840" y1="615" x2="840" y2="640" stroke="#6b4f30" stroke-width="0.8"/>
+  <line x1="870" y1="615" x2="870" y2="640" stroke="#6b4f30" stroke-width="0.8"/>
+  <line x1="900" y1="615" x2="900" y2="640" stroke="#6b4f30" stroke-width="0.8"/>
+  <line x1="930" y1="615" x2="930" y2="640" stroke="#6b4f30" stroke-width="0.8"/>
+  <line x1="960" y1="615" x2="960" y2="640" stroke="#6b4f30" stroke-width="0.8"/>
+  <text x="905" y="630" text-anchor="middle" font-size="10" fill="#fff" font-weight="600">ГРЯДКИ</text>
+
+  <!-- Garden zone label -->
+  <text x="605" y="445" text-anchor="middle" font-size="22" font-weight="700" fill="#1e6c3a" opacity="0.85" letter-spacing="2">САД · ОГОРОД</text>
+  <text x="605" y="465" text-anchor="middle" font-size="12" fill="#3a7a52" letter-spacing="1">солнечная зона ☀ · 4.5 м (свободная) + 3 м (отступ)</text>
+
+  <!-- Setback line south -->
+  <line x1="200" y1="540" x2="1010" y2="540" stroke="#27ae60" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+  <text x="1015" y="544" font-size="9" fill="#27ae60">отступ 3 м →</text>
+
+  <!-- ===== HOUSE (20m × 6.5m, position x=230..830, y=240..435, pressed to north fence with 1m gap) ===== -->
+  <!-- 1m offset from north (208) = 30px, so house top y=238, height 6.5m = 195px → bottom y=433 -->
+
+  <!-- House shadow on ground -->
+  <ellipse cx="530" cy="445" rx="305" ry="8" fill="#000" opacity="0.1"/>
+
+  <!-- House main body -->
+  <g filter="url(#shadow)">
+    <rect x="230" y="240" width="600" height="195" fill="#fdfcf8" stroke="#2c3e50" stroke-width="3"/>
+    <!-- Wall texture -->
+    <rect x="230" y="240" width="600" height="195" fill="url(#wall-hatch)" opacity="0.3"/>
+  </g>
+
+  <!-- Internal divisions (faint) -->
+  <g stroke="#c4ccd3" stroke-width="1.2" fill="none">
+    <!-- North corridor strip (1.5m from north wall = 45px) -->
+    <line x1="230" y1="285" x2="800" y2="285"/>
+    <!-- Vertical room dividers (going east → west: котельная, спальня3, спальня2, санузлы, спальня1, кухня, прихожая) -->
+    <line x1="290" y1="240" x2="290" y2="435"/>
+    <line x1="350" y1="285" x2="350" y2="435"/>
+    <line x1="350" y1="240" x2="350" y2="285"/>
+    <line x1="440" y1="240" x2="440" y2="435"/>
+    <line x1="510" y1="240" x2="510" y2="435"/>
+    <line x1="510" y1="335" x2="580" y2="335"/>
+    <line x1="580" y1="240" x2="580" y2="435"/>
+    <line x1="690" y1="240" x2="690" y2="435"/>
+    <line x1="800" y1="240" x2="800" y2="435"/>
+  </g>
+
+  <!-- Room labels (small) -->
+  <g font-size="10" fill="#7a8a99" text-anchor="middle">
+    <text x="260" y="345">Котельн.</text>
+    <text x="320" y="345">Спальня 3</text>
+    <text x="320" y="270">Гардероб.</text>
+    <text x="395" y="345">Спальня 2</text>
+    <text x="475" y="295">С/у</text>
+    <text x="475" y="380">Ванная</text>
+    <text x="545" y="345">Спальня 1</text>
+    <text x="635" y="345">Кухня-гост.</text>
+    <text x="745" y="345">Прихожая</text>
+  </g>
+
+  <!-- House title (above house) -->
+  <text x="530" y="225" text-anchor="middle" font-size="18" font-weight="700" fill="#2c3e50" letter-spacing="0.5">
+    ДОМ · 20 × 6.5 м
+  </text>
+
+  <!-- Entry door (east end) -->
+  <rect x="828" y="320" width="6" height="35" fill="#27ae60"/>
+  <path d="M834 320 L850 312 L850 363 L834 355 Z" fill="#27ae60" opacity="0.3" stroke="#27ae60" stroke-width="1"/>
+  <text x="855" y="345" font-size="11" fill="#27ae60" font-weight="700">ВХОД</text>
+
+  <!-- Boiler exit (west, south side) -->
+  <rect x="226" y="395" width="4" height="22" fill="#e67e22"/>
+  <text x="187" y="412" font-size="10" fill="#e67e22" font-weight="600">выход</text>
+  <text x="187" y="424" font-size="10" fill="#e67e22" font-weight="600">котельной</text>
+
+  <!-- Big window south (kitchen) -->
+  <rect x="600" y="432" width="80" height="6" fill="#5dade2" stroke="#2874a6" stroke-width="0.5"/>
+  <!-- Terrace door -->
+  <rect x="595" y="432" width="20" height="6" fill="#27ae60" opacity="0.7"/>
+  <!-- Bedroom windows south -->
+  <rect x="300" y="432" width="40" height="6" fill="#5dade2" stroke="#2874a6" stroke-width="0.5"/>
+  <rect x="370" y="432" width="40" height="6" fill="#5dade2" stroke="#2874a6" stroke-width="0.5"/>
+  <rect x="525" y="432" width="40" height="6" fill="#5dade2" stroke="#2874a6" stroke-width="0.5"/>
+
+  <!-- ===== TERRACE (south of kitchen) ===== -->
+  <rect x="595" y="438" width="120" height="55" fill="url(#wood)" stroke="#8b4513" stroke-width="1.2"/>
+  <text x="655" y="472" text-anchor="middle" font-size="11" font-weight="600" fill="#5d3317">ТЕРРАСА 4×2</text>
+
+  <!-- ===== PARKING + CANOPY (east of house, 6m × 6.5m, x=830..1010, y=240..435) ===== -->
+  <rect x="830" y="240" width="180" height="195" fill="url(#concrete)" stroke="#7a8a99" stroke-width="1.2" stroke-dasharray="5,3"/>
+
+  <!-- Canopy (polycarbonate, 6×3m, on top of parking) -->
+  <g opacity="0.85">
+    <rect x="845" y="270" width="160" height="105" fill="#aed6f1" stroke="#2874a6" stroke-width="2" rx="3"/>
+    <!-- Diagonal grid pattern (polycarbonate cells) -->
+    <line x1="845" y1="287" x2="1005" y2="287" stroke="#5499c7" stroke-width="0.6" opacity="0.6"/>
+    <line x1="845" y1="304" x2="1005" y2="304" stroke="#5499c7" stroke-width="0.6" opacity="0.6"/>
+    <line x1="845" y1="321" x2="1005" y2="321" stroke="#5499c7" stroke-width="0.6" opacity="0.6"/>
+    <line x1="845" y1="338" x2="1005" y2="338" stroke="#5499c7" stroke-width="0.6" opacity="0.6"/>
+    <line x1="845" y1="355" x2="1005" y2="355" stroke="#5499c7" stroke-width="0.6" opacity="0.6"/>
+  </g>
+
+  <!-- Canopy support posts -->
+  <g fill="#5a6975">
+    <rect x="843" y="268" width="6" height="6"/>
+    <rect x="1001" y="268" width="6" height="6"/>
+    <rect x="843" y="371" width="6" height="6"/>
+    <rect x="1001" y="371" width="6" height="6"/>
+  </g>
+
+  <!-- Car under canopy -->
+  <use href="#car" x="925" y="322" width="120" height="60"/>
+
+  <!-- Parking labels -->
+  <text x="920" y="252" text-anchor="middle" font-size="13" font-weight="700" fill="#2874a6">НАВЕС 6 × 3 м</text>
+  <text x="920" y="430" text-anchor="middle" font-size="10" fill="#5a6975">парковка · поликарбонат</text>
+
+  <!-- ===== BACK YARD (1m strip west of house, x=200..230) ===== -->
+  <rect x="200" y="240" width="30" height="195" fill="#f4ead5" stroke="#a08560" stroke-dasharray="2,2"/>
+  <text x="215" y="345" text-anchor="middle" font-size="9" fill="#7a5d3a" transform="rotate(-90, 215, 345)">проход 1 м</text>
+
+  <!-- ===== STREET (east) ===== -->
+  <rect x="1015" y="150" width="65" height="510" fill="#3a3a3a" opacity="0.85"/>
+  <!-- Road markings -->
+  <line x1="1047" y1="170" x2="1047" y2="200" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="220" x2="1047" y2="250" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="270" x2="1047" y2="300" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="320" x2="1047" y2="350" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="370" x2="1047" y2="400" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="420" x2="1047" y2="450" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="470" x2="1047" y2="500" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="520" x2="1047" y2="550" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="570" x2="1047" y2="600" stroke="#fff" stroke-width="2"/>
+  <line x1="1047" y1="620" x2="1047" y2="640" stroke="#fff" stroke-width="2"/>
+  <text x="1047" y="700" text-anchor="middle" font-size="13" fill="#fff" font-weight="600" letter-spacing="2">УЛИЦА</text>
+
+  <!-- ===== SOUTH NEIGHBOR (#36) ===== -->
+  <rect x="200" y="675" width="810" height="35" fill="#d5d8dc" stroke="#7a8a99" stroke-width="1"/>
+  <text x="605" y="697" text-anchor="middle" font-size="13" fill="#5a6975" font-weight="500">↓ Жилой дом №36 (соседи) ↓</text>
+
+  <!-- ===== SUN ===== -->
+  <g transform="translate(1130, 700)">
+    <g opacity="0.4">
+      <line x1="0" y1="-50" x2="0" y2="-65" stroke="#f9c74f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="35" y1="-35" x2="46" y2="-46" stroke="#f9c74f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="50" y1="0" x2="65" y2="0" stroke="#f9c74f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="35" y1="35" x2="46" y2="46" stroke="#f9c74f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="-35" y1="-35" x2="-46" y2="-46" stroke="#f9c74f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="-50" y1="0" x2="-65" y2="0" stroke="#f9c74f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="-35" y1="35" x2="-46" y2="46" stroke="#f9c74f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="50" x2="0" y2="65" stroke="#f9c74f" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <circle cx="0" cy="0" r="38" fill="url(#sun-grad)" filter="url(#shadow)"/>
+    <text x="0" y="6" text-anchor="middle" font-size="22">☀</text>
+    <text x="0" y="80" text-anchor="middle" font-size="11" fill="#a06c10" font-weight="600">солнце весь день</text>
+  </g>
+
+  <!-- ===== DIMENSIONS ===== -->
+  <!-- Bottom: 27 m -->
+  <g stroke="#2c3e50" stroke-width="0.8" fill="none">
+    <line x1="200" y1="730" x2="1010" y2="730"/>
+    <line x1="200" y1="725" x2="200" y2="735"/>
+    <line x1="1010" y1="725" x2="1010" y2="735"/>
+  </g>
+  <rect x="580" y="722" width="50" height="16" fill="#f5f1e8"/>
+  <text x="605" y="734" text-anchor="middle" font-size="14" font-weight="700" fill="#2c3e50">27 м</text>
+
+  <!-- Right of plot: 15 m -->
+  <g stroke="#2c3e50" stroke-width="0.8" fill="none">
+    <line x1="155" y1="208" x2="155" y2="660"/>
+    <line x1="150" y1="208" x2="160" y2="208"/>
+    <line x1="150" y1="660" x2="160" y2="660"/>
+  </g>
+  <rect x="135" y="425" width="40" height="16" fill="#f5f1e8"/>
+  <text x="155" y="437" text-anchor="middle" font-size="14" font-weight="700" fill="#2c3e50" transform="rotate(-90, 155, 437)">15 м</text>
+
+  <!-- Internal sub-dimensions (top: 20m house + 6m parking + 1m back) -->
+  <g stroke="#7a8a99" stroke-width="0.6" fill="none">
+    <line x1="200" y1="222" x2="230" y2="222"/>
+    <line x1="200" y1="218" x2="200" y2="226"/>
+    <line x1="230" y1="218" x2="230" y2="226"/>
+
+    <line x1="230" y1="222" x2="830" y2="222"/>
+    <line x1="830" y1="218" x2="830" y2="226"/>
+
+    <line x1="830" y1="222" x2="1010" y2="222"/>
+    <line x1="1010" y1="218" x2="1010" y2="226"/>
+  </g>
+  <text x="215" y="235" text-anchor="middle" font-size="9" fill="#5a6975">1м</text>
+  <text x="530" y="235" text-anchor="middle" font-size="11" font-weight="600" fill="#5a6975">20 м (дом)</text>
+  <text x="920" y="235" text-anchor="middle" font-size="11" font-weight="600" fill="#5a6975">6 м (навес)</text>
+
+  <!-- ===== LEGEND (bottom right area) ===== -->
+  <g transform="translate(1100, 250)">
+    <rect x="0" y="0" width="240" height="320" fill="#fdfcf8" stroke="#c0392b" stroke-width="1.5" rx="6" filter="url(#shadow)"/>
+    <text x="120" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#2c3e50" letter-spacing="1">УСЛОВНЫЕ ОБОЗНАЧЕНИЯ</text>
+    <line x1="20" y1="38" x2="220" y2="38" stroke="#c0392b" stroke-width="1"/>
+
+    <g font-size="11" fill="#3a4a55">
+      <rect x="20" y="50" width="20" height="14" fill="#fdfcf8" stroke="#2c3e50" stroke-width="2"/>
+      <text x="50" y="61">Жилой дом 130 м²</text>
+
+      <rect x="20" y="76" width="20" height="14" fill="url(#hatch)" stroke="#5a6975"/>
+      <text x="50" y="87">Коммерческое здание</text>
+
+      <rect x="20" y="102" width="20" height="14" fill="url(#grass)" stroke="#7a9a64"/>
+      <text x="50" y="113">Сад / газон / огород</text>
+
+      <rect x="20" y="128" width="20" height="14" fill="url(#concrete)" stroke="#7a8a99"/>
+      <text x="50" y="139">Парковка / навес</text>
+
+      <rect x="20" y="154" width="20" height="14" fill="url(#wood)" stroke="#8b4513"/>
+      <text x="50" y="165">Терраса (дерево)</text>
+
+      <rect x="20" y="180" width="20" height="14" fill="#aed6f1" stroke="#2874a6"/>
+      <text x="50" y="191">Поликарбонат (навес)</text>
+
+      <line x1="20" y1="210" x2="40" y2="210" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="50" y="214">Граница участка</text>
+
+      <use href="#tree" x="30" y="232" width="20" height="20"/>
+      <text x="50" y="237">Дерево / куст</text>
+
+      <rect x="22" y="252" width="16" height="14" fill="#27ae60"/>
+      <text x="50" y="263">Вход / выход</text>
+
+      <rect x="22" y="276" width="16" height="6" fill="#5dade2" stroke="#2874a6"/>
+      <text x="50" y="284">Окно</text>
+    </g>
+  </g>
+
+  <!-- ===== INFO BLOCK (top left) ===== -->
+  <g transform="translate(60, 760)">
+    <rect x="0" y="0" width="500" height="115" fill="#fdfcf8" stroke="#2c5f7c" stroke-width="1.5" rx="6" filter="url(#shadow)"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#2c5f7c">КЛЮЧЕВЫЕ ПАРАМЕТРЫ</text>
+    <line x1="20" y1="36" x2="160" y2="36" stroke="#2c5f7c" stroke-width="1"/>
+
+    <g font-size="12" fill="#3a4a55">
+      <text x="20" y="58"><tspan font-weight="600">Участок:</tspan> 15 × 27 м (405 м² / 4 сотки)</text>
+      <text x="20" y="78"><tspan font-weight="600">Дом:</tspan> 20 × 6.5 м, 110 м² жилых</text>
+      <text x="20" y="98"><tspan font-weight="600">Конструктив:</tspan> монолитный каркас + газоблок D500 400 мм</text>
+
+      <text x="270" y="58"><tspan font-weight="600">Этажность:</tspan> 1 этаж, потолки 3.2 м</text>
+      <text x="270" y="78"><tspan font-weight="600">Сейсмика:</tspan> 9 баллов</text>
+      <text x="270" y="98"><tspan font-weight="600">Фундамент:</tspan> монолитная плита 300 мм</text>
+    </g>
+  </g>
+
+  <!-- ===== ZONE CALLOUTS WITH ARROWS ===== -->
+  <!-- Callout: 1m setback to commerce -->
+  <g>
+    <line x1="700" y1="222" x2="700" y2="170" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,2"/>
+    <circle cx="700" cy="170" r="3" fill="#c0392b"/>
+    <text x="700" y="160" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="600">отступ 1 м (требует согласия)</text>
+  </g>
+
+  <!-- ===== FOOTER ===== -->
+  <text x="60" y="888" font-size="11" fill="#7a8a99" font-style="italic">
+    Версия 0.4 · Алматинская область, 2026 · масштаб ~1:75 на A3 · клиент: Madiyar
+  </text>
+  <text x="1340" y="888" text-anchor="end" font-size="11" fill="#7a8a99" font-style="italic">
+    проект подлежит согласованию в акимате
+  </text>
+
+</svg>
